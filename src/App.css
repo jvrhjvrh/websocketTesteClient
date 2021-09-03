@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+.chat-body-container {
+  display: grid;
+  grid-template-rows: 1fr 12fr 3fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    "header header header header header"
+    "main main main main users"
+    "text-input text-input text-input text-input send-button";
+  width: 100%;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-container {
+  grid-area: main;
+  border: 1px solid black;
+  overflow-y: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.message {
+  width: 60%;
+  max-width: 60%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.users-container {
+  grid-area: users;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  overflow-y: auto;
+  min-width: 100%;
+  width: 100%;
+}
+
+.header-container {
+  grid-area: header;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.text-input {
+  grid-area: text-input;
+  height: 60%;
+  align-self: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.send-button {
+  grid-area: send-button;
+  height: 60%;
+  align-self: center;
 }
